@@ -1,0 +1,35 @@
+// Workshop: 6
+// Full Name: Deyang Xie
+// Student ID: 150162204
+// Email Address: dxie17@myseneca.ca
+// Date: 2021/11/14
+// Description: I have done all the coding by myself and only copied the code
+// that my professor provided to complete my workshops and assignments.
+///////////////////////////////////////////////////
+1. Why do you need to deallocate the dynamically allocated memory in your vector?
+
+In Utilities.cpp, we use Vehicle* createInstance(std::istream& in) function to create the pointer to Vehicle object and then push it back to the std::vector<Vehicle*> m_vehicles in the Autoshop.cpp file. Because we use dynamic memory to create new object Vehicle in the function createInstance(), in the vector m_vehicles stores the Vehicle objects dynamically. So, if we don't delete all the objects in the vector m_vehicles one by one, that means there will be memory leak because dynamic memory was used but not deallocated at last.
+
+
+2. When building an object from the input file, different things can go wrong: the record represents an unknown type of vehicle, or record contains invalid data. How can the function loadData() detect what went wrong? Can you think at another solution than the one you have implemented?
+
+I think the question is very similar with the question 2 of workshop 5. The function loadData() detects what went wrong by the method try{} and catch{}. In the function loadData(), we use try{} to create a new Vehicle object and add it to an arrary of Vehicle object sdds::Vehicle* aVehicle. If any error is thrown out, the function will detect it by different types such as const char*message or char type so that the console will show the error. That’s the functionality how we can find errors by exceptions. 
+Another solution to realize it is to create a global variable to control the data transfer between process of creating new Vehicle object and main function. For example, I can create a global variable flag to control if the function createInstance() reads unrecognized character type. When the type is not recognized, we set the recognized=false, such as:
+Vehicle* createInstance(std::istream& in){
+ if(oneLine[posNotBlank] != 'c' && oneLine[posNotBlank] != 'r') 
+  std::cout << "error" << std::endl;
+  recognized = false;
+  }
+  else {recognized = true;}.
+In the main function, when recognized ==false, the main function will get the information that creating new Vehicle is not successful so it will go to right step such as:
+if (recognized ==false) {
+std::cout << "Unrecognized record type: ["<<type<<"]" << std::endl;}
+The result is the same with the try and catch. But it's not good as the try-and-catch method because the global variables will not be concise and sometimes it probably will result in confusion and mistake if we use unnecessary global variables frequently.
+
+
+3. In this workshop you had to use `std::list<sdds::Vehicle*>` and `std::vector<sdds::Vehicle*>` to store a collection of vehicles as pointers. Could you have used `std::list<sdds::Vehicle>` and `std::vector<sdds::Vehicle>` instead? Justify your answer!
+
+The vector <Vehicle*> is different from the vector < Vehicle>. The first one stores pointers of Vehicle while the second one stores the objects of Vehicle. We can use both of vector types to realize the same result. However, based on the workshop, using `std::list<sdds::Vehicle>` and `std::vector<sdds::Vehicle>` instead is not a good idea because in the whole workshop we use Vehicle pointers to keep the codes consistent such as the createInstance() returns a Vehicle pointer and in main function we create sdds::Vehicle* aVehicle to store an array of  Vehicle objects. But if we use vector<sdds::Vehicle> we have to create it like this: aVehicle[SIZE]. We have to change all the setting accordingly. it’s important to keep the codes consistent. Meanwhile, we have to mind the dynamic memory if we use vector<sdds::Vehicle> because we cannot transfer the pointer to the vector like we use vector<sdds::Vehicle*>. In this situation, perhaps static memory will be better choice for vector<sdds::Vehicle>.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+THE END

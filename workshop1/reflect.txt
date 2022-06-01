@@ -1,0 +1,28 @@
+// Workshop: 1
+// Full Name: Deyang Xie
+// Student ID: 150162204
+// Email Address: dxie17@myseneca.ca
+// Date: 2021/09/25
+// Description: I have done all the coding by myself and only copied the code
+// that my professor provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////////
+1. What I learned in workshop 1
+
+In workshop 1 I learned three important points: how to receive program arguments from the command line; how to access a variable defined in a different translation unit. how to declare a local variable that resides in memory throughout the lifetime of the program; reviewing how to guard a class definition from duplication in a translation unit and use DMA.
+
+Firstly, I learned how to receive program arguments from the command line. Usually, we just use int main (int argc, char **argv){} to enforce the function. The first parameter (argc) receives the number of arguments supplied on the command line from the operating system while the second parameter (argv) receives the address of an array of pointers to C-style null-terminated strings. Each pointer holds the address of a string that holds one command-line argument.  
+
+Secondly, I learned how to access a variable defined in a different translation unit and how to declare a local variable that resides in memory throughout the lifetime of the program. For example, I defined a global variable unsigned int g_sysClock and initialized it to 0 in event.cpp. To make the variable accessible in the main file, I declare it in the header file event.h using key word extern. Also, I created a static variable unsigned int counter and initialized it to 0 so that the variable can exist until the end of the program although the variable is local one.
+
+Finally, I reviewed how to use DMA and how to guard a class definition. DMA is always difficult for me because I cannot see the memory. when problems occur, it's difficult to debug and test them. However, the basic rules for DMA is not complex in C++. The key words are new and delete. For how to guard a class definition, I used #ifndef SDDS_EVENT_H_ #define SDDS_EVENT_H_ #endif to protect it.
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+2. the difficulties I encountered in workshop 1
+
+The most difficult thing for me in workshop 1 is about the logic. Although I have finished the workshop successfully, I'm still a little confused about that. Usually, we just loaded the data in the files and stored them into classes.But this time, the data in the file is loaded and stored into the local variables. For example, the local variable time. We are required to create a global variable g_sysClock and use multiple loops to get the right time to store in the class. That makes the logics is difficult for me to understand so that it took me a long time and a lot of energy. It's not a difficult workshop, but it teaches me an impressive lesson. 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+THE END
+

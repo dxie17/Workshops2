@@ -1,0 +1,57 @@
+// Workshop: 7
+// Full Name: Deyang Xie
+// Student ID: 150162204
+// Email Address: dxie17@myseneca.ca
+// Date: 2021/11/20
+// Description: I have done all the coding by myself and only copied the code
+// that my professor provided to complete my workshops and assignments.
+///////////////////////////////////////////////////
+1. List all the STL functions that you have used in this workshop; explain your reasoning for choosing each one, and not another.
+
+In list class template, I use void push_back(const T& t) to add an element t after the last element in the container. Actually, I can also choose the function void push_front(const T& t) to add an element t before the first element in the container. I think there is no difference between them.
+
+The same situation with the list class template, I use void push_back(const T& t) in vector class template to add an element t after the last element in the container. I can also choose the function void push_front(const T& t) to add an element t before the first element in the container. there is no difference between them.
+I also use iterator begin() and end() that each STL container class includes to return an iterator pointing to the first element and the last one in a sequence to determine the right position. I use them because it's very convenient and they are the only choice.
+
+
+2. Present the advantages of using STL algorithms vs. implementing the functionality by yourself using loops.
+
+In the workshop, I use the STL algorithms like this:
+for (const Song& song : m_song) {
+	out << song<<endl;
+	total += song.m_length;
+}.
+The function is the same with:
+for(auto i=0u;i<m_song.size();i++){
+	out << m_song[i]<<endl;
+	total += m_song[i].m_length;
+}.
+The advantages of the first version are obvious: the code is short, readable and easy to step through with a debugger. We don't need to create a function-scope variable (like i) that we won't use again.
+
+I also use the STL algorithm function std::sort(m_song.begin(), m_song.end(), compare) to sort the objects. It's very handy to realize the function of sorting the collection of songs in ascending order. If I use loops by myself to do that, it's complex and will cost more extra energy and time. 
+
+
+3. The function that sorts the collection of songs receives as a parameter the field name to use; this can create errors if the client specifies an invalid field (or misspells it). How would you redesign that function to prevent the client to specify an invalid string, allowing any error to be detected by the compiler?
+
+I think I can use try{}-catch{} method to detect the problem. For example, I can redesign the function like this:
+  void SongCollection::sort(const std::string& str){
+        auto compare = [=](const Song&s1,const Song &s2) {
+		   bool isTrue=false;
+		   if(str == "title"|| str == "album" || str == "length"){
+				if(s1.m_title < s2.m_title)
+				 	isTrue=false;
+		   }
+		   else throw "an invalid field / misspells it";
+        };
+	try{
+        	std::sort(m_song.begin(), m_song.end(), compare);
+	}	
+	catch(const char* message){
+		std::cout<<message<<std::endl;
+	}
+    }
+In that way, we can get the tips and find the problem easily.
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+THE END

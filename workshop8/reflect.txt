@@ -1,0 +1,22 @@
+// Workshop: 8
+// Full Name: Deyang Xie
+// Student ID: 150162204
+// Email Address: dxie17@myseneca.ca
+// Date: 2021/11/28
+// Description: I have done all the coding by myself and only copied the code
+// that my professor provided to complete my workshops and assignments.
+///////////////////////////////////////////////////
+1. The advantage that smart pointer syntax provides. Use example from your code to support your explanation.
+
+The advantage of smart pointers is that they ensure the actual object is deleted as well as an exception occurs. Meanwhile, when you use a raw pointer you have to delete every dynamic memory for each possible exit point, but still an exception perhaps will lead to a memory leak. Any mistake could lead to a memory leak in raw pointers so that you must be very careful when using raw pointers.
+In workshop 8, I create a function mergeRaw() where I allocate dynamic memory for the class Product named newProduct using a raw pointer. At the end of the function I delete the raw pointer using delete newProduct. If I missed the last step, there would be memory leak. Meanwhile, I create a function mergeSmart() where I allocate dynamic memory for the class Product named newProduct as well. But not like the raw pointers I used a smart pointer to realize it. At the end of the function, I don't use delete newProduct but there is no memory leak, which means smart pointers ensure the actual object is deleted automatically.
+
+
+2. The difference between raw and smart pointer syntax in your solution.
+
+A pointer is a type of variable which stores the address of an object in memory, and is used to access that object. A raw pointer is a pointer whose lifetime is not controlled by an encapsulating object. It's initialized using new to point an object allocated on the heap, which you must explicitly delete so that there will not be memory leak. In workshop 8, I use Product* newProduct = new Product(desc[i].desc, price[m].price) to create a raw pointer.
+Smart pointers are defined in the std namespace in the <memory> header file. a smart pointer is a class template that is declare on the stack, and initialized by using a raw pointer that points to a heap-allocated object. After the smart pointer is initialized, it owns the raw pointer. This means that the smart pointer is responsible for deleting the memory that the raw pointer specifies. In workshop 8, I use std::shared_ptr<Product> newProduct(new Product(desc[i].desc, price[m].price)) to create a smart pointer.
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+THE END

@@ -1,0 +1,23 @@
+// Workshop: 4
+// Full Name: Deyang Xie
+// Student ID: 150162204
+// Email Address: dxie17@myseneca.ca
+// Date: 2021/10/24
+// Description: I have done all the coding by myself and only copied the code
+// that my professor provided to complete my workshops and assignments.
+///////////////////////////////////////////////////
+1. The difference between the implementations of a composition, an aggregation and association.
+
+A composition is a has-a relationship between classes. It implements complete ownership. The composer object is responsible for destroying its component object(s) at or before its own destruction. A composition is incomplete without its components. In workshop 4, I create the class Reservation to store booking information for restaurants. Then I create another class Restaurant which contains class Reservation to store the restaurant's booking information. Here Reservation and Restaurant are in the relationship of composition. Restaurant has a Reservation.
+An aggregation is a composition that does not manage the creation or destruction of the objects that it uses. The responsibility for creating and destroying the objects lies outside the aggregator type.  The aggregator is complete whether or not any of the objects that it uses exist.  The objects used survive the destruction of the aggregator. In workshop 4, I create another class ConfirmationSender which contains class Reservation but is not responsible for creating and destroying these objects. That means ConfirmationSender and Reservation are in the relationship of aggregation.
+An association is a service relationship. It does not involve any ownership of one type by another. Each type is independent and complete without the related type. Association is the least coupled relationship between classes.  Member functions in an association do not require forwarding member functions in the related type. In workshop 4, the ostream& operator<< and Reservation are in the relationship of association.
+
+
+2. The difference between the implementations of move and copy functions in a composition and an aggregation.
+
+The move and copy functions in a composition will create new memory to store the copied resources. After that, the copied resources will die such as sdds::Restaurant res3(std::move(res2)),res3 is from res2 and after that res2 is empty.
+The move and copy functions in an aggregation will not create new memory but just to store the pointers of the copied resources. After that, the copied resources still exist such as sdds::ConfirmationSender sender3(std::move(sender1)), sender3 is from sender1 while sender1 still exists after that.
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+THE END

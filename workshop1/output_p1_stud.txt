@@ -1,0 +1,96 @@
+Script started on Sat 25 Sep 2021 09:43:03 PM EDT
+==178998== Memcheck, a memory error detector
+==178998== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==178998== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==178998== Command: ws monday.txt tuesday.txt wednesday.txt thursday.txt friday.txt saturday.txt sunday.txt
+==178998== 
+[38;5;9mBegin Testing the Program!
+--------------------------[0m
+
+Command Line:
+--------------------------
+1: ws
+2: monday.txt
+3: tuesday.txt
+4: wednesday.txt
+5: thursday.txt
+6: friday.txt
+7: saturday.txt
+8: sunday.txt
+--------------------------
+
+--------------------
+    Day 1
+--------------------
+  1. 00:02:55 => Computer starts
+  2. 00:02:55 => Computer starts
+  3. | No Event |
+  4. 01:15:34 => User logs in
+  5. 01:20:09 => User logs in
+  6. 09:01:04 => Browser closed
+  7. 17:33:33 => User checks email
+--------------------
+    Day 2
+--------------------
+  8. 01:02:23 => User starts working on homework
+  9. | No Event |
+ 10. 01:20:34 => User takes a break
+ 11. 01:22:30 => User plays Sudoku
+ 12. 01:26:40 => User resumes homework
+--------------------
+    Day 3
+--------------------
+Cannot open file [wednesday.txt]. Ignoring it!
+--------------------
+    Day 4
+--------------------
+Cannot open file [thursday.txt]. Ignoring it!
+--------------------
+    Day 5
+--------------------
+Cannot open file [friday.txt]. Ignoring it!
+--------------------
+    Day 6
+--------------------
+Cannot open file [saturday.txt]. Ignoring it!
+--------------------
+    Day 7
+--------------------
+Cannot open file [sunday.txt]. Ignoring it!
+--------------------
+    Archive
+--------------------
+ 13. | No Event |
+ 14. 01:20:00 => Authentication failed
+ 15. 01:23:20 => Browser starts
+ 16. 09:01:04 => Browser closed
+ 17. 17:33:33 => User checks email
+ 18. 01:02:23 => User starts working on homework
+ 19. 01:22:30 => User plays Sudoku
+ 20. | No Event |
+ 21. 01:26:40 => User resumes homework
+--------------------
+
+[38;5;9m------------------------
+End Testing the Program![0m
+==178998== 
+==178998== HEAP SUMMARY:
+==178998==     in use at exit: 181 bytes in 10 blocks
+==178998==   total heap usage: 39 allocs, 29 frees, 93,555 bytes allocated
+==178998== 
+==178998== 181 bytes in 10 blocks are definitely lost in loss record 1 of 1
+==178998==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==178998==    by 0x40121E: sdds::Event::set(char const*) (event.cpp:53)
+==178998==    by 0x401868: main (w1_p1.cpp:94)
+==178998== 
+==178998== LEAK SUMMARY:
+==178998==    definitely lost: 181 bytes in 10 blocks
+==178998==    indirectly lost: 0 bytes in 0 blocks
+==178998==      possibly lost: 0 bytes in 0 blocks
+==178998==    still reachable: 0 bytes in 0 blocks
+==178998==         suppressed: 0 bytes in 0 blocks
+==178998== 
+==178998== For lists of detected and suppressed errors, rerun with: -s
+==178998== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+Script done on Sat 25 Sep 2021 09:43:04 PM EDT

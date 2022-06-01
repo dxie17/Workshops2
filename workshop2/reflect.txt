@@ -1,0 +1,27 @@
+// Workshop: 2
+// Full Name: Deyang Xie
+// Student ID: 150162204
+// Email Address: dxie17@myseneca.ca
+// Date: 2021/10/2
+// Description: I have done all the coding by myself and only copied the code
+// that my professor provided to complete my workshops and assignments.
+/////////////////////////////////////////////////////////////////////////////
+1. What I learned in workshop 2
+
+In workshop 2, the most important thing is I learned how to write and implement move semantics for a class with a resource; what's the difference between copy and move semantics; how to become familiar with a new library and use it freely. I also reviewed how to retrieve records from a text file using an input file stream object and how to count the number of records in a text file.
+
+Firstly, I learned how to write and implement move semantics and what's the difference between copy and move semantics. In last semester, we learned how to write copy constructor and copy assignment operator. In the workshop, we learned how to move constructor and move assignment operator and what's difference clearly between them based on the execution time. The move constructor and move assignment operator takes less time so that they are much more efficient.The reason is that the memory is not copied and then reassigned, simply reassigned for move operation. That means it performs fewer operations that copy operation so that it requires less time and resource. 
+
+Secondly, I learned how to read a new library specification and use them. In the workshop we use a new library std::chrono I was not familiar at first. I have to read the file about the library and learn how to use it. At last I realized the functionality I need. It's a good practice for me to learn new libraries in the future.
+
+Finally, I reviewed how to retrieve data from a text file and how to count the results. The biggest thing for me is to distinguish fstream fin with getline() because at first I use fstream fin but I got the wrong number. The reason is that I did not realize the problem is that they use different delimiters. For example, fin can miss Enter key, Tab key, second space key and so on, which doesn't meet the requirement of the workshop.
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+2. the difficulties I encountered in workshop 2
+
+The most difficult thing for me is how to become familiar with a new library and use them freely. Usually it always costed me much more time than I thought to learn new libraries. Although it's necessary, long time brought me more pressure. But for this time, when I was learning the library std::chrono, I suddenly realized that a library is just like a new object where related member variables and functions are encapsulated so that we can use them conveniently. For example, when we include <string>, we can define a string m_string directly and assign it to a string type such as m_string="Deyang Xie". The reason why we can use them like that is that in the string library the operator = is defined. I think that is why C++ is so powerful because there are many libraries and objects we can choose.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+THE END

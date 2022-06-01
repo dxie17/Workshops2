@@ -1,0 +1,31 @@
+// Workshop: 3
+// Full Name: Deyang Xie
+// Student ID: 150162204
+// Email Address: dxie17@myseneca.ca
+// Date: 2021/10/10
+// Description: I have done all the coding by myself and only copied the code
+// that my professor provided to complete my workshops and assignments.
+///////////////////////////////////////////////////
+1. Why we do not split a module into ‘*.h’ and ‘.cpp’ like you did in the previous workshops.
+
+A template is not a class or a function. A template is a "pattern" that the compiler uses to generate a family of classes or functions. In order for the compiler to generate the code, it must see both the template definition but not just declaration and the specific types whatever used to “fill in” the template. If we write template in header file whie the body in .cpp file, perhaps the compiler probably doesn’t remember the details of one .cpp file while it is compiling another .cpp file, which will probably result error.
+
+
+2. What does "= initial" in the prototype mean.
+
+In the PairSummable.h file "= initial" means if no value is passed to the second parameter, then its default value will be initialized to NULL automatically so that an according function will be generated and executed. In the workshop when we filter the class based on the type we just pass a string filter, if we don’t use "= initial", the program cannot know which function will be executed so that there will be an error. But when I change T temp(filter) to T temp (filter, {}), the error is gone and the program works well without "= initial". Apparently, both of the parameters are passed by value so without "= initial" it still works well.
+
+
+3. The reason for specializing the "operator+=()" member function.
+To get different output formate for different types, we have to specialize the "operator+=()" member function for the type string. For example, to get summable value of "Tools", we use specialized operator+=() for string to get "hammer, jigsaw". But if we don't define the specialized operator+=(), we will get "hammerjigsaw". it's unreadable.
+
+4. Why we don't need to specialize the initial value for the summation.
+In fact, I don't understand the question. I know variables should be initialized at first while for template functions some of them should be specialized just like specialized operator+=() shown in last question. But to specialize a variable, I don't know how. I can explain how I initialize the classes Pair and PairSummable.  When PairSummable is created first, the static variables m_minWidth and m_initial are created and initialized to {}. Considering that they are const variables so when there are created they will exist until the program dies. For class Pair, when they are created, the constructor Pair () initializes m_value and m_key to {}.
+
+5. The reason for defining the class variable outside the class definition.
+C++ is not supportive for initializing static member variables via a static constructor while we can only initialize normal member variables via a constructor. If static variables can be directly initialized, no constructor will be needed: we can initialize the static member variable at the point of definition (even if it is private). That will make the class less meaningful.
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+THE END

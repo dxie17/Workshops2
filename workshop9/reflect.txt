@@ -1,0 +1,25 @@
+// Workshop: 9
+// Full Name: Deyang Xie
+// Student ID: 150162204
+// Email Address: dxie17@myseneca.ca
+// Date: 2021/12/05
+// Description: I have done all the coding by myself and only copied the code
+// that my professor provided to complete my workshops and assignments.
+///////////////////////////////////////////////////
+1. Why was necessary to use binary files in this workshop and how did you use them
+
+Binary files are nothing more than a series of bytes. This means that anything larger than a byte needs to be defined in terms of bytes. In the workshop using binary files is necessary just because we can write a given number of bytes on the given stream, starting at the position of the "put" pointer. To access binary files, we define istream class of the input-output hierarchy includes a member function that reads a stream in binary mode while ostream classin the same hierarchy includes a member function for writing to a file in binary mode. For example, in the workshop I used std::fstream fin(file, std::ios::in | std::ios::binary) to read data from a binary file and std::fstream fout(file, std::ios::out | std::ios::binary | std::ios::trunc) to write data into a binary file.
+
+
+2. Why would be important to bind a function to its arguments, and how was it useful in this workshop
+Bind functions with the help of placeholders will help to manipulate the position and number of values to be used by the function and modify the function according to the desired output. In that case, binding a function to its arguments will simplify the execution of the function and multiply threads. 
+For example, I created a bind function auto task = bind(converter, placeholders::_1, key, placeholders::_2, Cryptor()) then I can create multiple threads based on the different placeholders 1 and 2.
+
+
+3. The advantages of using multiple threads, and how did you accomplished multi-threading in this workshop
+
+There are several advantages of using multiple threads such as it will perform faster on a multi-CPU system, improve performance and concurrency, simplify the coding of remote procedure calls and conversions, access multiple applications simultaneously, enable a program to make the best use of available CPU cycles and allow to write very efficient programs and so on. But there are also some disadvantages of using them such as all threads in a process share the same memory space so that if one thread crashes the process, it will affect the entire process, because it shares the same memory space. Meanwhile, multithreading has difficulties in finding and resolving bugs. But overall, it's beneficial to use the multiple threads because of the advantages. In the workshop I create a bind function and then create several multiple threads to deal with the char arrays averagely. 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+THE END
